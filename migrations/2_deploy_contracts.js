@@ -7,11 +7,14 @@ module.exports = function (deployer, network, accounts) {
   const neptuneDeFiToken = artifacts.require(neptuneDeFiTokenName);
   fs.readdir(contractsDirectory, (err, files) => {
     files.forEach(file => {
-      const tokenName = file.replaceAll(".json", "");
-      if(tokenName != neptuneDeFiTokenName) {
-        const token = artifacts.require(tokenName);
-        deployer.deploy(token);
-      }
-  })});
+          const tokenName = file.replaceAll(".json", "");
+          if(tokenName != neptuneDeFiTokenName) {
+            const token = artifacts.require(tokenName);
+            deployer.deploy(token);
+          }
+        }
+      );
+    }
+  );
   deployer.deploy(neptuneDeFiToken);
 };
