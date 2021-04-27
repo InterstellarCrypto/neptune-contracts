@@ -3,11 +3,15 @@
 module.exports = function (deployer, network, accounts) {
   const contractsDirectory = "../build/contracts/";
   const fs = require('fs');
+  const neptuneDeFiTokenName = "NeptuneDeFi";
+  const neptuneDeFiToken = artifacts.require(neptuneDeFiTokenName);
   fs.readdir(contractsDirectory, (err, files) => {
     files.forEach(file => {
-      const token = artifacts.require(file.replaceAll(".json", ""))
-      deployer.deploy(token)
+      const tokenName = file.replaceAll(".json", "");
+      if(tokenName != neptuneDeFiTokenName) {
+        const token = artifacts.require(tokenName);
+        deployer.deploy(token);
+      }
   })});
-
-  deployer.deploy(token);
+  deployer.deploy(neptuneDeFiToken);
 };
