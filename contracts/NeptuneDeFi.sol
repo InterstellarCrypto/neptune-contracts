@@ -59,7 +59,7 @@ contract NeptuneDeFi is Context, IERC20, Ownable {
         inSwapAndLiquify = false;
     }
     
-    constructor () public {
+    constructor () {
         _rOwned[_msgSender()] = _rTotal;
         
         IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x5540c944E0AdC325740B9b755D49106150a4C122);
