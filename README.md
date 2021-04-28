@@ -13,7 +13,7 @@
 
 ## Instructions for Local Deployment
 * Upon cloning the project execute the command below to start a local blockchain fork
-  * `start-local-blockchain-fork.sh`
+  * `./start-local-blockchain-fork.sh`
 * Upon running a local blockahin fork, execute the following command from the root directory of the project to deploy a smart contract to your local Ganache.
   * `./deploy-application.sh`
 * Ensure the `contracts/NeptuneDeFi.sol` file is referring to a local-ganache token
