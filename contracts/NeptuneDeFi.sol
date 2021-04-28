@@ -1,4 +1,5 @@
 pragma solidity >=0.4.22 <0.9.0;
+// SPDX-License-Identifier: Unlicensed
 
 import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
@@ -7,8 +8,9 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
+import "@uniswap/v2-periphery/contracts/UniswapV2Router02.sol";
 
-contract NeptuneDeFi is Context, IERC20, Ownable {
+contract NeptuneDeFi is IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
@@ -62,7 +64,7 @@ contract NeptuneDeFi is Context, IERC20, Ownable {
     constructor () {
         _rOwned[_msgSender()] = _rTotal;
         
-        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x5540c944E0AdC325740B9b755D49106150a4C122);
+        IUniswapV2Router02 _uniswapV2Router = UniswapV2Router02(0x5540c944E0AdC325740B9b755D49106150a4C122);
          // Create a uniswap pair for this new token
         uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
             .createPair(address(this), _uniswapV2Router.WETH());
