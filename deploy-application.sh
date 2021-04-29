@@ -1,5 +1,5 @@
 #!/bin/bash
 npm install
-truffle compile
-truffle migrate
+truffle version
+truffle deploy --network ropsten
 read -p "Press enter to close window ..."
