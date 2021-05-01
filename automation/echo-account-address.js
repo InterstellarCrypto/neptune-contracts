@@ -1,11 +1,19 @@
 var Web3 = require('web3');
-const web=new Web3(new Web3.providers.HttpProvider("http://ropsten.infura.io/"));
+const ropstenUrl = provess.env.ROPSTEN_URL;
+const web=new Web3(new Web3.providers.HttpProvider(ropstenUrl));
 let firstAccount = null;
+let ethereumBlockCahin = web.eth
+let getAccountsPromise = ethereumBlockCahin.getAccounts();
+console.log("getAccountsPromise =" + getAccountsPromise);
+
 web
     .eth
-    .getAccounts()
-    .then(function(result){
-        firstAccount = result[0];
+    .getAccounts((error, accounts) => { 
+        firstAccount = accounts[0]; 
+        console.log("inner firstAccount = " + firstAccount);
+        console.log("inner accounts = " + accounts);
+        console.log("inner error = " + error);
     });
 
-console.log(firstAccount);
+console.log("First Account = " + firstAccount);
+
