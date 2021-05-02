@@ -1,10 +1,10 @@
-const fs = require('fs');
-let path = '../.env';
-if (!fs.existsSync(path)) {
+const fs = require('fs')
+if (!fs.existsSync(path)) {    
     const bip39 = require('bip39');
 
     let mnemonic = bip39.generateMnemonic();
-    let output = "MNEMONIC=" + mnemonic + "\nROPSTEN_URL=https://ropsten.infura.io/v3/e24f055a7bec4ac182b57f067b1cc98f"
+    let ropstenUrl="ROPSTEN_URL=https://ropsten.infura.io/v{insert-your-version-here}/{insert-your-hash-here}";
+    let output = "MNEMONIC=" + mnemonic + "\nROPSTEN_URL="+ropstenUrl;
     let buffer = new Buffer(output);
 
     // open the file in writing mode, adding a callback function where we do the actual writing
