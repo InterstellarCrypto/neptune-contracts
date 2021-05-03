@@ -3,7 +3,7 @@ if (!fs.existsSync(path)) {
     const bip39 = require('bip39');
 
     let mnemonic = bip39.generateMnemonic();
-    let ropstenUrl="ROPSTEN_URL=https://ropsten.infura.io/v{insert-your-version-here}/{insert-your-hash-here}";
+    let ropstenUrl=process.env.ROPSTEN_URL
     let output = "MNEMONIC=" + mnemonic + "\nROPSTEN_URL="+ropstenUrl;
     let buffer = new Buffer(output);
 

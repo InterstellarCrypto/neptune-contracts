@@ -28,7 +28,7 @@ contract NeptuneDeFi is Context, IERC20, Ownable {
     uint256 private _tFeeTotal;
 
     string private _name = "NeptuneDeFi";
-    string private _symbol = "NEPTUNEDEFI";
+    string private _symbol = "NEPT";
     uint8 private _decimals = 9;
     
     uint256 public _taxFee = 5;
@@ -63,7 +63,7 @@ contract NeptuneDeFi is Context, IERC20, Ownable {
     constructor () public{
         _rOwned[_msgSender()] = _rTotal;
         
-        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
+        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0xD99D1c33F9fC3444f8101754aBC46c52416550D1);
          // Create a uniswap pair for this new token
         uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
             .createPair(address(this), _uniswapV2Router.WETH());
